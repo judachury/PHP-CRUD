@@ -1,0 +1,25 @@
+# Do not remove this line, otherwise mod_rewrite rules will stop working
+RewriteBase /CRUD/version-2/
+
+# Enable Rewriting
+RewriteEngine on
+
+# Rewrite user URLs
+#   Input:  person/create/
+#   Output: index.php?page=create
+RewriteRule ^person/create?$ index.php?page=create
+
+# Rewrite user URLs
+#   Input:  person/id/
+#   Output: index.php?page=update&id=$1
+RewriteRule ^person/([1-9][0-9]*)/?$ index.php?page=update&id=$1
+
+# Rewrite user URLs
+#   Input:  person/id/
+#   Output: index.php?page=update&id=$1
+RewriteRule ^person/([1-9][0-9]*)/delete/?$ index.php?page=delete&id=$1
+
+# Rewrite user URLs
+#   Input:  person/id/
+#   Output: 
+RewriteRule ^home/?$ index.php
